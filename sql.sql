@@ -18,9 +18,9 @@ CREATE table animal_colors (
 	color_id int)
 	
 insert into animal_colors
-select animals."index"
+select animals."index",
 	   colors.name
-from animals;
+from animals
 join colors on rtrim(animals.color1)=rtrim(colors.name);
 
 insert into animal_colors
