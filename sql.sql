@@ -13,10 +13,10 @@ CREATE table colors(
 select *
 from colors;
 	
-CREATE table animal_colors (
-	animal_id int,
+CREATE table animal_colors(
+	animal_id integer primary key autoincrement,
 	color_id int)
-	
+
 insert into animal_colors
 select animals."index",
 	   colors.name
@@ -24,9 +24,9 @@ from animals
 join colors on rtrim(animals.color1)=rtrim(colors.name);
 
 insert into animal_colors
-select animals."index"
+select animals."index",
 	   colors.name
-from animals;
+from animals
 join colors on rtrim(animals.color2)=rtrim(colors.name);
 
 SELECT DISTINCT animal_id, "color_id"
@@ -35,7 +35,7 @@ from animal_colors;
 drop table outcomes
 
 CREATE table outcomes(
-	outcome_id integer primary key autoincrement
+	outcome_id integer primary key autoincrement,
 	age_upon_outcome varchar(50),
 	outcomes_subtype varchar(50),
 	outcome_type varchar(50),
