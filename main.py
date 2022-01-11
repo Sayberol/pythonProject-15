@@ -11,7 +11,7 @@ def animals(idx):
     cursor = con.cursor()
     query = f"""
         SELECT * from animals_fin
-        left join outcomes on outcomes.animal_id=animal_id
+        left join outcomes on outcomes.animal_id=animals_fin.animal_id
         WHERE animals_fin.id={idx}
     """
 
